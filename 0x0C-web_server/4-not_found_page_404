@@ -26,4 +26,3 @@ printf %s "server {
 sed -i "30i $REDIR" $SRC
 
 service nginx restart                                                  1,1           Top
-
