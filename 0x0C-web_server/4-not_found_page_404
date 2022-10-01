@@ -6,7 +6,7 @@ SRC="/etc/nginx/sites-available/default"
 apt-get -y update
 apt-get -y install nginx
 sudo service nginx start
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
 sudo sed -i "30i $REDIR" $SRC
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
 sudo sed -i "48i $ERRDIR" $SRC
