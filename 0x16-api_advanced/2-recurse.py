@@ -13,11 +13,11 @@ def recurse(subreddit, hot_list=[]):
     url = "https://www.reddit.com/r/" + subreddit + "/hot.json"
     if after:
         url = url + "?after=" + after
-    response = requests.get(url, headers=header, allow_redirects=False)
-    if response.status_code != 200:
+    r = requests.get(url, headers=header, allow_redirects=False)
+    if r.status_code != 200:
         return None
-    after = response.json().get("after", "")
-    for i in response.json().get("data", None).get("children", None):
+    after = r.json().get("after", "")
+    for i in r.json().get("data", None).get("children", None):
         hot_list.append(i.get("data", None).get("title", None))
     if after:
         return recurse(subreddit, hot_list)
